@@ -15,6 +15,10 @@ class MetarListViewModel: ObservableObject {
     private let storage: AviWXStorage
     private var availableMetars = [MetarViewModel]()
     
+    var isMetarAvailable: Bool {
+        !availableMetars.isEmpty
+    }
+    
     init(storage: AviWXStorage = UserDefaults.standard) {
         self.storage = storage
         loadMetars()

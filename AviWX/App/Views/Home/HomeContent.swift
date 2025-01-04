@@ -13,15 +13,25 @@ struct HomeContent: View {
     
     @State private var searchText: String = ""
     
+    private var noMetarsMessage: String {
+        if searchText.isEmpty {
+            return "🌦️ No METARs added yet. Use the search to find your favorite airports and view live weather updates."
+        } else {
+            return "🌦️ No METARs found for \"\(searchText)\"."
+        }
+    }
+    
     var body: some View {
         VStack {
-            TextField("Search airport...", text: $searchText)
-                .textStyle(.body)
-                .padding()
-                .frame(maxWidth: .infinity)
-            Divider()
+            if listViewModel.isMetarAvailable {
+                TextField("Search airport...", text: $searchText)
+                    .textStyle(.body)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                Divider()
+            }
             if listViewModel.metars.isEmpty {
-                Text("🌦️ No METARs added yet. Use the search to find your favorite airports and view live weather updates.")
+                Text(noMetarsMessage)
                     .textStyle(.light)
                     .padding()
                 Spacer()
