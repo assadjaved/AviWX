@@ -1,0 +1,25 @@
+{
+  "name": "AviWXStyling",
+  "version": "1.0.0",
+  "summary": "AviWX text styling module",
+  "homepage": "https://github.com/assadjaved/AviWX",
+  "authors": {
+    "Asad Javed": "assad.j.karim@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/assadjaved/AviWX.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source_files": "Modules/AviWXStyling/Sources/**/*.{swift,h,m}",
+  "frameworks": "Foundation",
+  "testspecs": [
+    {
+      "name": "AviWXStylingTests",
+      "test_type": "unit",
+      "source_files": "Modules/AviWXStyling/Tests/**/*.{swift}"
+    }
+  ]
+}

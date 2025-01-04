@@ -1,0 +1,41 @@
+{
+  "name": "AviWXNetworking",
+  "version": "1.0.0",
+  "summary": "AviWX networking module",
+  "homepage": "https://github.com/assadjaved/AviWX",
+  "authors": {
+    "Asad Javed": "assad.j.karim@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/assadjaved/AviWX.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source_files": "Modules/AviWXNetworking/Sources/**/*.{swift,h,m}",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "SwiftNet": [
+
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "AviWXNetworkingTests",
+      "test_type": "unit",
+      "source_files": "Modules/AviWXNetworking/Tests/**/*.{swift}",
+      "dependencies": {
+        "Quick": [
+
+        ],
+        "Nimble": [
+
+        ],
+        "RxTest": [
+
+        ]
+      }
+    }
+  ]
+}

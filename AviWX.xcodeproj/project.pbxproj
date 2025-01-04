@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72349AE7EEE365D63FD93D40 /* Pods_AviWXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD112B474FBF9297D0664906 /* Pods_AviWXTests.framework */; };
+		7E59A617E0C8891B26C7D399 /* Pods_AviWX_AviWXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E28AECD778A556065F60C1A /* Pods_AviWX_AviWXUITests.framework */; };
+		C398A1E972DB40CF8A3A7A53 /* Pods_AviWX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9134E5D9012240AFA295E36B /* Pods_AviWX.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC05FC312D2405A300B5D4D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC05FC182D2405A000B5D4D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC05FC1F2D2405A000B5D4D2;
+			remoteInfo = AviWX;
+		};
+		EC05FC3B2D2405A300B5D4D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC05FC182D2405A000B5D4D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC05FC1F2D2405A000B5D4D2;
+			remoteInfo = AviWX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		042B37304FC375EDC7F43D5D /* Pods-AviWXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AviWXTests.release.xcconfig"; path = "Target Support Files/Pods-AviWXTests/Pods-AviWXTests.release.xcconfig"; sourceTree = "<group>"; };
+		0BFF0B61041A325C2B50E416 /* Pods-AviWX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AviWX.release.xcconfig"; path = "Target Support Files/Pods-AviWX/Pods-AviWX.release.xcconfig"; sourceTree = "<group>"; };
+		147F053C2649AE8621D42307 /* Pods-AviWX-AviWXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AviWX-AviWXUITests.release.xcconfig"; path = "Target Support Files/Pods-AviWX-AviWXUITests/Pods-AviWX-AviWXUITests.release.xcconfig"; sourceTree = "<group>"; };
+		21D1EE27D5EBECC086E3AE0D /* Pods-AviWX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AviWX.debug.xcconfig"; path = "Target Support Files/Pods-AviWX/Pods-AviWX.debug.xcconfig"; sourceTree = "<group>"; };
+		5C65DFC014B887A68C0778C0 /* Pods-AviWX-AviWXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AviWX-AviWXUITests.debug.xcconfig"; path = "Target Support Files/Pods-AviWX-AviWXUITests/Pods-AviWX-AviWXUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E28AECD778A556065F60C1A /* Pods_AviWX_AviWXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AviWX_AviWXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9134E5D9012240AFA295E36B /* Pods_AviWX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AviWX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD112B474FBF9297D0664906 /* Pods_AviWXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AviWXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE1FDBB974C76AB3FED45B7A /* Pods-AviWXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AviWXTests.debug.xcconfig"; path = "Target Support Files/Pods-AviWXTests/Pods-AviWXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC05FC202D2405A000B5D4D2 /* AviWX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviWX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC05FC302D2405A300B5D4D2 /* AviWXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AviWXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC05FC3A2D2405A300B5D4D2 /* AviWXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AviWXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EC05FC222D2405A000B5D4D2 /* AviWX */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AviWX;
+			sourceTree = "<group>";
+		};
+		EC05FC332D2405A300B5D4D2 /* AviWXTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AviWXTests;
+			sourceTree = "<group>";
+		};
+		EC05FC3D2D2405A300B5D4D2 /* AviWXUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AviWXUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC05FC1D2D2405A000B5D4D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C398A1E972DB40CF8A3A7A53 /* Pods_AviWX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC05FC2D2D2405A300B5D4D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72349AE7EEE365D63FD93D40 /* Pods_AviWXTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC05FC372D2405A300B5D4D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E59A617E0C8891B26C7D399 /* Pods_AviWX_AviWXUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61DEB44AA37224C73596E318 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21D1EE27D5EBECC086E3AE0D /* Pods-AviWX.debug.xcconfig */,
+				0BFF0B61041A325C2B50E416 /* Pods-AviWX.release.xcconfig */,
+				5C65DFC014B887A68C0778C0 /* Pods-AviWX-AviWXUITests.debug.xcconfig */,
+				147F053C2649AE8621D42307 /* Pods-AviWX-AviWXUITests.release.xcconfig */,
+				DE1FDBB974C76AB3FED45B7A /* Pods-AviWXTests.debug.xcconfig */,
+				042B37304FC375EDC7F43D5D /* Pods-AviWXTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B9956DBCE25FEDB8ECE039B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9134E5D9012240AFA295E36B /* Pods_AviWX.framework */,
+				8E28AECD778A556065F60C1A /* Pods_AviWX_AviWXUITests.framework */,
+				AD112B474FBF9297D0664906 /* Pods_AviWXTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC05FC172D2405A000B5D4D2 = {
+			isa = PBXGroup;
+			children = (
+				EC05FC222D2405A000B5D4D2 /* AviWX */,
+				EC05FC332D2405A300B5D4D2 /* AviWXTests */,
+				EC05FC3D2D2405A300B5D4D2 /* AviWXUITests */,
+				EC05FC212D2405A000B5D4D2 /* Products */,
+				61DEB44AA37224C73596E318 /* Pods */,
+				B9956DBCE25FEDB8ECE039B1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EC05FC212D2405A000B5D4D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC05FC202D2405A000B5D4D2 /* AviWX.app */,
+				EC05FC302D2405A300B5D4D2 /* AviWXTests.xctest */,
+				EC05FC3A2D2405A300B5D4D2 /* AviWXUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC05FC1F2D2405A000B5D4D2 /* AviWX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC05FC442D2405A300B5D4D2 /* Build configuration list for PBXNativeTarget "AviWX" */;
+			buildPhases = (
+				E0AEF031E2CD0AF4DA05A970 /* [CP] Check Pods Manifest.lock */,
+				EC05FC1C2D2405A000B5D4D2 /* Sources */,
+				EC05FC1D2D2405A000B5D4D2 /* Frameworks */,
+				EC05FC1E2D2405A000B5D4D2 /* Resources */,
+				A73A3FFCAB07901BE36B267D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EC05FC222D2405A000B5D4D2 /* AviWX */,
+			);
+			name = AviWX;
+			productName = AviWX;
+			productReference = EC05FC202D2405A000B5D4D2 /* AviWX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC05FC2F2D2405A300B5D4D2 /* AviWXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC05FC472D2405A300B5D4D2 /* Build configuration list for PBXNativeTarget "AviWXTests" */;
+			buildPhases = (
+				2601AFAE5CE157464A8A6334 /* [CP] Check Pods Manifest.lock */,
+				EC05FC2C2D2405A300B5D4D2 /* Sources */,
+				EC05FC2D2D2405A300B5D4D2 /* Frameworks */,
+				EC05FC2E2D2405A300B5D4D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC05FC322D2405A300B5D4D2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EC05FC332D2405A300B5D4D2 /* AviWXTests */,
+			);
+			name = AviWXTests;
+			productName = AviWXTests;
+			productReference = EC05FC302D2405A300B5D4D2 /* AviWXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC05FC392D2405A300B5D4D2 /* AviWXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC05FC4A2D2405A300B5D4D2 /* Build configuration list for PBXNativeTarget "AviWXUITests" */;
+			buildPhases = (
+				20CEFC9AD106048ADE112022 /* [CP] Check Pods Manifest.lock */,
+				EC05FC362D2405A300B5D4D2 /* Sources */,
+				EC05FC372D2405A300B5D4D2 /* Frameworks */,
+				EC05FC382D2405A300B5D4D2 /* Resources */,
+				FBD062BBAE90989E6007AC99 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC05FC3C2D2405A300B5D4D2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EC05FC3D2D2405A300B5D4D2 /* AviWXUITests */,
+			);
+			name = AviWXUITests;
+			productName = AviWXUITests;
+			productReference = EC05FC3A2D2405A300B5D4D2 /* AviWXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC05FC182D2405A000B5D4D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					EC05FC1F2D2405A000B5D4D2 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					EC05FC2F2D2405A300B5D4D2 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = EC05FC1F2D2405A000B5D4D2;
+					};
+					EC05FC392D2405A300B5D4D2 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = EC05FC1F2D2405A000B5D4D2;
+					};
+				};
+			};
+			buildConfigurationList = EC05FC1B2D2405A000B5D4D2 /* Build configuration list for PBXProject "AviWX" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC05FC172D2405A000B5D4D2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EC05FC212D2405A000B5D4D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC05FC1F2D2405A000B5D4D2 /* AviWX */,
+				EC05FC2F2D2405A300B5D4D2 /* AviWXTests */,
+				EC05FC392D2405A300B5D4D2 /* AviWXUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC05FC1E2D2405A000B5D4D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC05FC2E2D2405A300B5D4D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC05FC382D2405A300B5D4D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20CEFC9AD106048ADE112022 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AviWX-AviWXUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2601AFAE5CE157464A8A6334 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AviWXTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A73A3FFCAB07901BE36B267D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AviWX/Pods-AviWX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AviWX/Pods-AviWX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AviWX/Pods-AviWX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0AEF031E2CD0AF4DA05A970 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AviWX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBD062BBAE90989E6007AC99 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AviWX-AviWXUITests/Pods-AviWX-AviWXUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AviWX-AviWXUITests/Pods-AviWX-AviWXUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AviWX-AviWXUITests/Pods-AviWX-AviWXUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC05FC1C2D2405A000B5D4D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC05FC2C2D2405A300B5D4D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC05FC362D2405A300B5D4D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC05FC322D2405A300B5D4D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC05FC1F2D2405A000B5D4D2 /* AviWX */;
+			targetProxy = EC05FC312D2405A300B5D4D2 /* PBXContainerItemProxy */;
+		};
+		EC05FC3C2D2405A300B5D4D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC05FC1F2D2405A000B5D4D2 /* AviWX */;
+			targetProxy = EC05FC3B2D2405A300B5D4D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EC05FC422D2405A300B5D4D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC05FC432D2405A300B5D4D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC05FC452D2405A300B5D4D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21D1EE27D5EBECC086E3AE0D /* Pods-AviWX.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AviWX/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assadjaved.AviWX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC05FC462D2405A300B5D4D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BFF0B61041A325C2B50E416 /* Pods-AviWX.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AviWX/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assadjaved.AviWX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EC05FC482D2405A300B5D4D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE1FDBB974C76AB3FED45B7A /* Pods-AviWXTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assadjaved.AviWXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AviWX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AviWX";
+			};
+			name = Debug;
+		};
+		EC05FC492D2405A300B5D4D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 042B37304FC375EDC7F43D5D /* Pods-AviWXTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assadjaved.AviWXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AviWX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AviWX";
+			};
+			name = Release;
+		};
+		EC05FC4B2D2405A300B5D4D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C65DFC014B887A68C0778C0 /* Pods-AviWX-AviWXUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assadjaved.AviWXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AviWX;
+			};
+			name = Debug;
+		};
+		EC05FC4C2D2405A300B5D4D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 147F053C2649AE8621D42307 /* Pods-AviWX-AviWXUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.assadjaved.AviWXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AviWX;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC05FC1B2D2405A000B5D4D2 /* Build configuration list for PBXProject "AviWX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC05FC422D2405A300B5D4D2 /* Debug */,
+				EC05FC432D2405A300B5D4D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC05FC442D2405A300B5D4D2 /* Build configuration list for PBXNativeTarget "AviWX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC05FC452D2405A300B5D4D2 /* Debug */,
+				EC05FC462D2405A300B5D4D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC05FC472D2405A300B5D4D2 /* Build configuration list for PBXNativeTarget "AviWXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC05FC482D2405A300B5D4D2 /* Debug */,
+				EC05FC492D2405A300B5D4D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC05FC4A2D2405A300B5D4D2 /* Build configuration list for PBXNativeTarget "AviWXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC05FC4B2D2405A300B5D4D2 /* Debug */,
+				EC05FC4C2D2405A300B5D4D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC05FC182D2405A000B5D4D2 /* Project object */;
+}

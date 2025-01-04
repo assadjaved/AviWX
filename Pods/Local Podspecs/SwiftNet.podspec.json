@@ -1,0 +1,41 @@
+{
+  "name": "SwiftNet",
+  "version": "1.0.0",
+  "summary": "A basic swift networking library",
+  "homepage": "https://github.com/assadjaved/SwiftNet",
+  "authors": {
+    "Asad Javed": "assad.j.karim@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/assadjaved/SwiftNet.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source_files": "SwiftNet/Sources/**/*.{swift,h,m}",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "RxSwift": [
+
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "SwiftNetTests",
+      "test_type": "unit",
+      "source_files": "SwiftNet/Tests/**/*.{swift}",
+      "dependencies": {
+        "Quick": [
+
+        ],
+        "Nimble": [
+
+        ],
+        "RxTest": [
+
+        ]
+      }
+    }
+  ]
+}

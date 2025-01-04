@@ -1,0 +1,6 @@
+framework module Pods_AviWXTests {
+  umbrella header "Pods-AviWXTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

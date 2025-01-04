@@ -1,0 +1,6 @@
+framework module AviWXNetworking {
+  umbrella header "AviWXNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}

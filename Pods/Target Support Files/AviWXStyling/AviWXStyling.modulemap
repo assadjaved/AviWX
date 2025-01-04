@@ -1,0 +1,6 @@
+framework module AviWXStyling {
+  umbrella header "AviWXStyling-umbrella.h"
+
+  export *
+  module * { export * }
+}
