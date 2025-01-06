@@ -10,10 +10,26 @@ import AviWXStyling
 
 struct Home: View {
     @ObservedObject var listViewModel: MetarListViewModel
+    @State private var presentSearchAirport: Bool = false
     
     var body: some View {
         NavigationStack {
-            HomeContent(listViewModel: listViewModel)
+            HomeContent(
+                listViewModel: listViewModel,
+                metarViewCta: .refresh { icaoId in
+                    Task { await listViewModel.refreshMetar(icaoId) }
+                }
+            )
+            .sheet(isPresented: $presentSearchAirport) {
+                MetarSearchView(
+                    viewModel: MetarSearchViewModel(),
+                    presentSearchAirport: $presentSearchAirport,
+                    metarViewCta: .add { icaoId in
+                        listViewModel.addMetar(icaoId)
+                    }
+                )
+                .presentationDetents([.medium, .large])
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("🌦️ AviWX")
@@ -22,7 +38,7 @@ struct Home: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         // Action when search button is tapped
-                        print("Search button tapped")
+                        presentSearchAirport.toggle()
                     }) {
                         Image(systemName: "plus")
                             .imageScale(.large)

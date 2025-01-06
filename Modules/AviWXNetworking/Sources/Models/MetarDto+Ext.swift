@@ -16,7 +16,12 @@ public extension MetarDto {
     }
     
     var formattedWind: String {
-        "\(wdir)° @ \(wspd) kts"
+        switch wdir {
+        case .int(let value):
+            return "\(value)° @ \(wspd) kts"
+        case .string(let value):
+            return "\(value) @ \(wspd) kts"
+        }
     }
     
     var formattedAltimInHpa: String {

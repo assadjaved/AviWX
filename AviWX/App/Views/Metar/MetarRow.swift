@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MetarRow: View {
     @ObservedObject var viewModel: MetarViewModel
+    let metarViewCta: MetarViewButton
     
     var body: some View {
         VStack {
@@ -19,9 +20,10 @@ struct MetarRow: View {
                     .progressViewStyle(.circular)
                     .padding()
             case .value(let metar):
-                MetarView(metar: metar) {
-                    Task { await fetchMetar() }
-                }
+                MetarView(
+                    metar: metar,
+                    metarViewCta: metarViewCta
+                )
             case .error:
                 MetarErrorView {
                     Task { await fetchMetar() }

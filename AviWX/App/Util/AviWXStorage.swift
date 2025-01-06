@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AviWXStorage {
-    func save(_ icaoIds: [String])
+    func save(_ icaoId: String)
     func retrieve() -> [String]
 }
 
@@ -18,7 +18,10 @@ extension UserDefaults: AviWXStorage {
         static let icaoIdsKey = "icaoIdsKey"
     }
     
-    func save(_ icaoIds: [String]) {
+    func save(_ icaoId: String) {
+        var icaoIds = retrieve()
+        guard !icaoIds.contains(icaoId) else { return }
+        icaoIds.append(icaoId)
         set(icaoIds, forKey: Constants.icaoIdsKey)
     }
     

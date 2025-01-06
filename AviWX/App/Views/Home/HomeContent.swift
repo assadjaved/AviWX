@@ -10,12 +10,13 @@ import SwiftUI
 
 struct HomeContent: View {
     @ObservedObject var listViewModel: MetarListViewModel
+    let metarViewCta: MetarViewButton
     
     @State private var searchText: String = ""
     
     private var noMetarsMessage: String {
         if searchText.isEmpty {
-            return "🌦️ No METARs added yet. Use the search to find your favorite airports and view live weather updates."
+            return "🌦️ No METARs added yet. Please add your favorite airports to view live weather updates."
         } else {
             return "🌦️ No METARs found for \"\(searchText)\"."
         }
@@ -38,7 +39,10 @@ struct HomeContent: View {
             } else {
                 ScrollView {
                     ForEach(listViewModel.metars, id: \.icaoId) { metarViewModel in
-                        MetarRow(viewModel: metarViewModel)
+                        MetarRow(
+                            viewModel: metarViewModel,
+                            metarViewCta: metarViewCta
+                        )
                             .padding(.horizontal, 16)
                             .padding(.bottom, 8)
                     }

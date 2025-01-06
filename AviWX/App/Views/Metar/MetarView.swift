@@ -10,7 +10,7 @@ import AviWXNetworking
 
 struct MetarView: View {
     let metar: MetarDto
-    let refresh: () -> Void
+    let metarViewCta: MetarViewButton
     
     var body: some View {
         VStack {
@@ -25,11 +25,9 @@ struct MetarView: View {
                             .textStyle(.title)
                         Spacer()
                         Button(action: {
-                            refresh()
+                            metarViewCta.action(metar.icaoId)
                         }) {
-                            Image(systemName: "arrow.clockwise")
-                                .imageScale(.medium)
-                                .foregroundColor(.blue)
+                            metarViewCta.view
                         }
                     }
                     Spacer()
