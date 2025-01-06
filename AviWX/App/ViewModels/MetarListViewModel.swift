@@ -30,29 +30,28 @@ class MetarListViewModel: ObservableObject {
     
     private func loadMetars() {
         let icaoIds = storage.retrieve()
-//        let icaoIds = ["OPLA", "OPKC", "EGKK", "EGLL", "KJFK", "KLAX"]
         availableMetars = icaoIds.map { MetarViewModel(icaoId: $0, networking: networking) }
         metars = availableMetars
     }
     
-    func searchMetar(for searchText: String) {
-        guard !searchText.isEmpty else {
+    func filterMetars(for filterText: String) {
+        guard !filterText.isEmpty else {
             metars = availableMetars
             return
         }
 
-        let searchText = searchText.lowercased()
+        let filterText = filterText.lowercased()
         
         metars = availableMetars.filter { metarViewModel in
             // search by icaoId
-            if metarViewModel.icaoId.lowercased().contains(searchText) {
+            if metarViewModel.icaoId.lowercased().contains(filterText) {
                 return true
             }
             
             // search by airport name or country name
             if let metar = metarViewModel.metar {
-                return metar.name.lowercased().contains(searchText) ||
-                       metar.countryDetails.name.lowercased().contains(searchText)
+                return metar.name.lowercased().contains(filterText) ||
+                       metar.countryDetails.name.lowercased().contains(filterText)
             }
             
             return false
@@ -64,7 +63,19 @@ class MetarListViewModel: ObservableObject {
         await metarViewModel.fetchMetar()
     }
     
+    func reloadMetars() {
+        loadMetars()
+    }
+    
     func addMetar(_ icaoId: String) {
         storage.save(icaoId)
+    }
+    
+    func removeMetar(_ icaoId: String) {
+        storage.delete(icaoId)
+    }
+    
+    func isExistingMetar(_ icaoId: String) -> Bool {
+        storage.exists(icaoId)
     }
 }

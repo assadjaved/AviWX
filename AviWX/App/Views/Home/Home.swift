@@ -9,24 +9,19 @@ import SwiftUI
 import AviWXStyling
 
 struct Home: View {
-    @ObservedObject var listViewModel: MetarListViewModel
-    @State private var presentSearchAirport: Bool = false
+    @ObservedObject var metarListViewModel: MetarListViewModel
+    @ObservedObject var metarSearchViewModel: MetarSearchViewModel
+    @State private var presentAirportSearch: Bool = false
     
     var body: some View {
         NavigationStack {
-            HomeContent(
-                listViewModel: listViewModel,
-                metarViewCta: .refresh { icaoId in
-                    Task { await listViewModel.refreshMetar(icaoId) }
-                }
-            )
-            .sheet(isPresented: $presentSearchAirport) {
+            HomeContent(metarListViewModel: metarListViewModel)
+            .sheet(isPresented: $presentAirportSearch) {
                 MetarSearchView(
-                    viewModel: MetarSearchViewModel(),
-                    presentSearchAirport: $presentSearchAirport,
-                    metarViewCta: .add { icaoId in
-                        listViewModel.addMetar(icaoId)
-                    }
+                    metarSearchViewModel: metarSearchViewModel,
+                    presentSearchAirport: $presentAirportSearch,
+                    addMetar: addMetar(icaoId:),
+                    isExistingMetar: isExistingMetar(icaoId:)
                 )
                 .presentationDetents([.medium, .large])
             }
@@ -37,8 +32,7 @@ struct Home: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        // Action when search button is tapped
-                        presentSearchAirport.toggle()
+                        presentAirportSearch = true
                     }) {
                         Image(systemName: "plus")
                             .imageScale(.large)
@@ -46,9 +40,27 @@ struct Home: View {
                 }
             }
         }
+        .onChange(of: presentAirportSearch) { _, value in
+            if !value {
+                metarSearchViewModel.reset()
+            }
+        }
+    }
+    
+    private func addMetar(icaoId: IcaoId) {
+        presentAirportSearch = false
+        metarListViewModel.addMetar(icaoId)
+        metarListViewModel.reloadMetars()
+    }
+    
+    private func isExistingMetar(icaoId: IcaoId) -> Bool {
+        metarListViewModel.isExistingMetar(icaoId)
     }
 }
 
 #Preview {
-    Home(listViewModel: MetarListViewModel())
+    Home(
+        metarListViewModel: MetarListViewModel(),
+        metarSearchViewModel: MetarSearchViewModel()
+    )
 }

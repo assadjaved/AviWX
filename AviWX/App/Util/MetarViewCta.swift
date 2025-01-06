@@ -1,5 +1,5 @@
 //
-//  MetarButtonState.swift
+//  MetarViewCta.swift
 //  AviWX
 //
 //  Created by Asad Javed on 06/01/2025.
@@ -8,33 +8,38 @@
 import SwiftUI
 
 typealias IcaoId = String
-typealias MetarButtonHandler = (IcaoId) -> Void
+typealias MetarCtaHandler = (IcaoId) -> Void
 
-enum MetarViewButton {
-    case refresh(handler: MetarButtonHandler)
-    case add(handler: MetarButtonHandler)
+enum MetarViewCta {
+    case refresh(handler: MetarCtaHandler)
+    case add(handler: MetarCtaHandler)
+    case added
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .refresh:
-            RefreshButtonView()
+            RefreshCtaView()
         case .add:
-            AddButtonView()
+            AddCtaView()
+        case .added:
+            AddedCtaView()
         }
     }
     
-    var action: MetarButtonHandler {
+    var action: MetarCtaHandler? {
         switch self {
         case .refresh(let handler):
             return handler
         case .add(let handler):
             return handler
+        case .added:
+            return nil
         }
     }
 }
 
-private struct RefreshButtonView: View {
+private struct RefreshCtaView: View {
     var body: some View {
         Image(systemName: "arrow.clockwise")
             .imageScale(.medium)
@@ -42,7 +47,7 @@ private struct RefreshButtonView: View {
     }
 }
 
-private struct AddButtonView: View {
+private struct AddCtaView: View {
     var body: some View {
         HStack(spacing: 2) {
             Text("Add")
@@ -56,6 +61,24 @@ private struct AddButtonView: View {
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.black)
+        )
+    }
+}
+
+private struct AddedCtaView: View {
+    var body: some View {
+        HStack(spacing: 2) {
+            Image(systemName: "checkmark")
+                .imageScale(.small)
+                .foregroundStyle(.black)
+            Text("Added")
+                .textStyle(.bodySmall)
+                .foregroundStyle(.black)
+        }
+        .padding(8)
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(Color.green)
         )
     }
 }

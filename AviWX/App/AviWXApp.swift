@@ -12,7 +12,11 @@ import AviWXNetworking
 struct AviWXApp: App {
     var body: some Scene {
         WindowGroup {
-            Home(listViewModel: MetarListViewModel())
+            Home(
+                metarListViewModel: MetarListViewModel(),
+                metarSearchViewModel: MetarSearchViewModel()
+                
+            )
         }
     }
 }

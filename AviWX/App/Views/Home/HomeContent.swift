@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct HomeContent: View {
-    @ObservedObject var listViewModel: MetarListViewModel
-    let metarViewCta: MetarViewButton
+    @ObservedObject var metarListViewModel: MetarListViewModel
     
     @State private var searchText: String = ""
     
@@ -24,33 +23,35 @@ struct HomeContent: View {
     
     var body: some View {
         VStack {
-            if listViewModel.isMetarAvailable {
+            if metarListViewModel.isMetarAvailable {
                 TextField("Search airport...", text: $searchText)
                     .textStyle(.body)
                     .padding()
                     .frame(maxWidth: .infinity)
                 Divider()
             }
-            if listViewModel.metars.isEmpty {
+            if metarListViewModel.metars.isEmpty {
                 Text(noMetarsMessage)
                     .textStyle(.light)
                     .padding()
                 Spacer()
             } else {
                 ScrollView {
-                    ForEach(listViewModel.metars, id: \.icaoId) { metarViewModel in
+                    ForEach(metarListViewModel.metars, id: \.icaoId) { metarViewModel in
                         MetarRow(
                             viewModel: metarViewModel,
-                            metarViewCta: metarViewCta
+                            metarViewCta: .refresh { icaoId in
+                                Task { await metarListViewModel.refreshMetar(icaoId) }
+                            }
                         )
-                            .padding(.horizontal, 16)
-                            .padding(.bottom, 8)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 8)
                     }
                 }
             }
         }
         .onChange(of: searchText) { _, value in
-            listViewModel.searchMetar(for: value)
+            metarListViewModel.filterMetars(for: value)
         }
     }
 }

@@ -34,4 +34,8 @@ class MetarSearchViewModel: ObservableObject {
             metarState = .failure(AviWXError.notFound)
         }
     }
+    
+    func reset() {
+        metarState = nil
+    }
 }

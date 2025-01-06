@@ -10,7 +10,7 @@ import AviWXNetworking
 
 struct MetarView: View {
     let metar: MetarDto
-    let metarViewCta: MetarViewButton
+    let metarViewCta: MetarViewCta
     
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct MetarView: View {
                             .textStyle(.title)
                         Spacer()
                         Button(action: {
-                            metarViewCta.action(metar.icaoId)
+                            metarViewCta.action?(metar.icaoId)
                         }) {
                             metarViewCta.view
                         }

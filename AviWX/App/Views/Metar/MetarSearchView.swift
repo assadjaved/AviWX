@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct MetarSearchView: View {
-    @ObservedObject var viewModel: MetarSearchViewModel
+    @ObservedObject var metarSearchViewModel: MetarSearchViewModel
     @Binding var presentSearchAirport: Bool
-    let metarViewCta: MetarViewButton
     
     @State private var icaoId = ""
+    
+    let addMetar: (IcaoId) -> Void
+    let isExistingMetar: (IcaoId) -> Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,12 +35,12 @@ struct MetarSearchView: View {
             TextField("Enter airport ICAO id - eg. OPLA", text: $icaoId)
                 .textStyle(.body)
             Divider()
-            if let result = viewModel.metarState {
+            if let result = metarSearchViewModel.metarState {
                 switch result {
                 case .success(let metarViewModel):
                     MetarRow(
                         viewModel: metarViewModel,
-                        metarViewCta: metarViewCta
+                        metarViewCta: metarViewCta(for: metarViewModel.icaoId)
                     )
                 case .failure:
                     Text("Please enter a valid ICAO id - eg. OPLA 🛬")
@@ -51,7 +53,17 @@ struct MetarSearchView: View {
         }
         .padding()
         .onChange(of: icaoId) { _, icaoId in
-            viewModel.searchAirport(with: icaoId)
+            metarSearchViewModel.searchAirport(with: icaoId)
+        }
+    }
+    
+    private func metarViewCta(for icaoId: IcaoId) -> MetarViewCta {
+        if isExistingMetar(icaoId) {
+            return .added
+        } else {
+            return .add { icaoId in
+                addMetar(icaoId)
+            }
         }
     }
 }

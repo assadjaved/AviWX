@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MetarRow: View {
     @ObservedObject var viewModel: MetarViewModel
-    let metarViewCta: MetarViewButton
+    let metarViewCta: MetarViewCta
     
     var body: some View {
         VStack {
