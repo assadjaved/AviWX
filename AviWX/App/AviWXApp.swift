@@ -10,11 +10,34 @@ import AviWXNetworking
 
 @main
 struct AviWXApp: App {
+    
+    private let dependencies: AviWXDependencies
+    private let services: AviWXServices
+    
+    private let metarListViewModel: MetarListViewModel
+    private let metarSearchViewModel: MetarSearchViewModel
+    
+    init() {
+        dependencies = AppDependencies()
+        services = AppServices(dependencies: dependencies)
+        
+        metarListViewModel = MetarListViewModel(
+            metarStorageService: services.metarStorageService,
+            metarAvailabilityService: services.metarAvailabilityService
+        )
+        
+        metarSearchViewModel = MetarSearchViewModel(
+            metarStorageService: services.metarStorageService,
+            metarAvailabilityService: services.metarAvailabilityService,
+            networking: dependencies.networking
+        )
+    }
+    
     var body: some Scene {
         WindowGroup {
             Home(
-                metarListViewModel: MetarListViewModel(),
-                metarSearchViewModel: MetarSearchViewModel()
+                metarListViewModel: metarListViewModel,
+                metarSearchViewModel: metarSearchViewModel
                 
             )
         }

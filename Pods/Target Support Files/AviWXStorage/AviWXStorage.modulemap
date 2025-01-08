@@ -1,0 +1,6 @@
+framework module AviWXStorage {
+  umbrella header "AviWXStorage-umbrella.h"
+
+  export *
+  module * { export * }
+}

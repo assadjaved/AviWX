@@ -8,30 +8,39 @@
 
 import Foundation
 import AviWXNetworking
+import AviWXStorage
+import Combine
 
 class MetarListViewModel: ObservableObject {
     
     @Published var metars = [MetarViewModel]()
     
-    private let storage: AviWXStorage
-    private let networking: AviWXNetworkingType
-    private var availableMetars = [MetarViewModel]()
+    private let metarStorageService: MetarStorageService
+    private let metarAvailabilityService: MetarAvailabilityService
+    private var cancellables = Set<AnyCancellable>()
     
-    var isMetarAvailable: Bool {
-        !availableMetars.isEmpty
+    private var availableMetars: [MetarViewModel] {
+        metarAvailabilityService.availableMetars
     }
     
-    init(storage: AviWXStorage = UserDefaults.standard,
-         networking: AviWXNetworkingType = AviWXNetworking.shared) {
-        self.storage = storage
-        self.networking = networking
-        loadMetars()
+    var metarsAvailable: Bool {
+        metarAvailabilityService.metarsAvailable
     }
     
-    private func loadMetars() {
-        let icaoIds = storage.retrieve()
-        availableMetars = icaoIds.map { MetarViewModel(icaoId: $0, networking: networking) }
-        metars = availableMetars
+    init(metarStorageService: MetarStorageService, metarAvailabilityService: MetarAvailabilityService) {
+        self.metarStorageService = metarStorageService
+        self.metarAvailabilityService = metarAvailabilityService
+        bindings()
+    }
+    
+    private func bindings() {
+        metarAvailabilityService
+            .$availableMetars
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] metars in
+                self?.metars = metars
+            }
+            .store(in: &cancellables)
     }
     
     func filterMetars(for filterText: String) {
@@ -63,19 +72,7 @@ class MetarListViewModel: ObservableObject {
         await metarViewModel.fetchMetar()
     }
     
-    func reloadMetars() {
-        loadMetars()
-    }
-    
-    func addMetar(_ icaoId: String) {
-        storage.save(icaoId)
-    }
-    
-    func removeMetar(_ icaoId: String) {
-        storage.delete(icaoId)
-    }
-    
-    func isExistingMetar(_ icaoId: String) -> Bool {
-        storage.exists(icaoId)
+    func deleteMetar(_ icaoId: String) {
+        metarStorageService.delete(icaoId)
     }
 }

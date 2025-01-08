@@ -19,8 +19,8 @@ struct MetarErrorView: View {
                     refresh()
                 }) {
                     Image(systemName: "arrow.clockwise")
-                        .imageScale(.medium)
-                        .foregroundColor(.blue)
+                        .imageScale(.small)
+                        .foregroundColor(.black)
                 }
             }
             VStack {

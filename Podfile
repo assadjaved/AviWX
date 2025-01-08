@@ -6,6 +6,7 @@ target 'AviWX' do
   pod 'SwiftNet', :git => 'https://github.com/assadjaved/SwiftNet.git'
   pod 'AviWXNetworking', :path => '.', :inhibit_warnings => false, :testspecs => ['AviWXNetworkingTests']
   pod 'AviWXStyling', :path => '.', :inhibit_warnings => false, :testspecs => ['AviWXStylingTests']
+  pod 'AviWXStorage', :path => '.', :inhibit_warnings => false, :testspecs => ['AviWXStorageTests']
 
   target 'AviWXTests' do
     inherit! :search_paths

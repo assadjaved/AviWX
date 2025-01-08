@@ -6,6 +6,8 @@ PODS:
     - Quick
     - RxTest
     - SwiftNet
+  - AviWXStorage (1.0.0)
+  - AviWXStorage/AviWXStorageTests (1.0.0)
   - AviWXStyling (1.0.0)
   - AviWXStyling/AviWXStylingTests (1.0.0)
   - CwlCatchException (2.2.1):
@@ -29,6 +31,8 @@ PODS:
 DEPENDENCIES:
   - AviWXNetworking (from `.`)
   - AviWXNetworking/AviWXNetworkingTests (from `.`)
+  - AviWXStorage (from `.`)
+  - AviWXStorage/AviWXStorageTests (from `.`)
   - AviWXStyling (from `.`)
   - AviWXStyling/AviWXStylingTests (from `.`)
   - SwiftNet (from `https://github.com/assadjaved/SwiftNet.git`)
@@ -48,6 +52,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   AviWXNetworking:
     :path: "."
+  AviWXStorage:
+    :path: "."
   AviWXStyling:
     :path: "."
   SwiftNet:
@@ -60,6 +66,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AviWXNetworking: 4084087ff1916a303f906ce1a318899d5a61139c
+  AviWXStorage: 673036e96e286b79efabb3eab5b191d2a111f59c
   AviWXStyling: 74a2f6656545ff3c165df4acf8442ca926c0718e
   CwlCatchException: 7acc161b299a6de7f0a46a6ed741eae2c8b4d75a
   CwlCatchExceptionSupport: 54ccab8d8c78907b57f99717fb19d4cc3bce02dc
@@ -72,6 +79,6 @@ SPEC CHECKSUMS:
   RxTest: d0fa1ec82feb41efa826a59173ec65eafbbe4aaf
   SwiftNet: 7e63bef941366c2af435eae0e21ac5e1a19c44b0
 
-PODFILE CHECKSUM: a1dee967733df584256c2fadce1330667fba159b
+PODFILE CHECKSUM: a56c52dcc03345e03cfa9ae23795cf249d1651af
 
 COCOAPODS: 1.14.3

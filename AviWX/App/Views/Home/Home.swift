@@ -19,9 +19,7 @@ struct Home: View {
             .sheet(isPresented: $presentAirportSearch) {
                 MetarSearchView(
                     metarSearchViewModel: metarSearchViewModel,
-                    presentSearchAirport: $presentAirportSearch,
-                    addMetar: addMetar(icaoId:),
-                    isExistingMetar: isExistingMetar(icaoId:)
+                    presentSearchAirport: $presentAirportSearch
                 )
                 .presentationDetents([.medium, .large])
             }
@@ -35,7 +33,13 @@ struct Home: View {
                         presentAirportSearch = true
                     }) {
                         Image(systemName: "plus")
-                            .imageScale(.large)
+                            .imageScale(.small)
+                            .foregroundColor(.black)
+                            .padding(4)
+                            .overlay(
+                                Circle()
+                                    .stroke(.black, style: StrokeStyle(lineWidth: 0.5))
+                            )
                     }
                 }
             }
@@ -46,21 +50,4 @@ struct Home: View {
             }
         }
     }
-    
-    private func addMetar(icaoId: IcaoId) {
-        presentAirportSearch = false
-        metarListViewModel.addMetar(icaoId)
-        metarListViewModel.reloadMetars()
-    }
-    
-    private func isExistingMetar(icaoId: IcaoId) -> Bool {
-        metarListViewModel.isExistingMetar(icaoId)
-    }
-}
-
-#Preview {
-    Home(
-        metarListViewModel: MetarListViewModel(),
-        metarSearchViewModel: MetarSearchViewModel()
-    )
 }

@@ -22,10 +22,7 @@ class MetarViewModel: ObservableObject {
         return nil
     }
     
-    init(
-        icaoId: String,
-        networking: AviWXNetworkingType = AviWXNetworking.shared
-    ) {
+    init(icaoId: String, networking: AviWXNetworkingType) {
         self.icaoId = icaoId
         self.networking = networking
         Task { await fetchMetar() }

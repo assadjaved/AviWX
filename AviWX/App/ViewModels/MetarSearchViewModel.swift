@@ -10,14 +10,23 @@ import AviWXNetworking
 
 class MetarSearchViewModel: ObservableObject {
     
-    @Published var metarState: Result<MetarViewModel, Error>?
+    @Published private(set) var metarState: Result<MetarViewModel, Error>?
     
     private enum Constants {
         static let icaoIdLength = 4
     }
+    
+    private let metarStorageService: MetarStorageService
+    private let metarAvailabilityService: MetarAvailabilityService
     private let networking: AviWXNetworkingType
     
-    init(networking: AviWXNetworkingType = AviWXNetworking.shared) {
+    init(
+        metarStorageService: MetarStorageService,
+        metarAvailabilityService: MetarAvailabilityService,
+        networking: AviWXNetworkingType
+    ) {
+        self.metarStorageService = metarStorageService
+        self.metarAvailabilityService = metarAvailabilityService
         self.networking = networking
     }
     
@@ -27,12 +36,32 @@ class MetarSearchViewModel: ObservableObject {
             return
         }
         
+        // check if the metar is already available
+        if let metarViewModel = metarAvailabilityService.availableMetars.first(
+            where: { $0.icaoId.lowercased() == icaoId.lowercased() }
+        ) {
+            metarState = .success(metarViewModel)
+            return
+        }
+        
         // icao id should be 4 characters long
         if icaoId.count == Constants.icaoIdLength {
             metarState = .success(MetarViewModel(icaoId: icaoId, networking: networking))
         } else {
             metarState = .failure(AviWXError.notFound)
         }
+    }
+    
+    func saveMetar(_ icaoId: String) {
+        metarStorageService.save(icaoId)
+    }
+    
+    func isExistingMetar(_ icaoId: String) -> Bool {
+        metarStorageService.exists(icaoId)
+    }
+    
+    func reloadMetars() {
+        metarAvailabilityService.fetchAvailableMetars()
     }
     
     func reset() {

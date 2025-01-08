@@ -23,7 +23,7 @@ struct HomeContent: View {
     
     var body: some View {
         VStack {
-            if metarListViewModel.isMetarAvailable {
+            if metarListViewModel.metarsAvailable {
                 TextField("Search airport...", text: $searchText)
                     .textStyle(.body)
                     .padding()

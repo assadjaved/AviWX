@@ -14,9 +14,6 @@ struct MetarSearchView: View {
     
     @State private var icaoId = ""
     
-    let addMetar: (IcaoId) -> Void
-    let isExistingMetar: (IcaoId) -> Bool
-    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -27,6 +24,13 @@ struct MetarSearchView: View {
                     presentSearchAirport = false
                 }) {
                     Image(systemName: "xmark")
+                        .imageScale(.small)
+                        .foregroundColor(.black)
+                        .padding(4)
+                        .overlay(
+                            Circle()
+                                .stroke(.black, style: StrokeStyle(lineWidth: 0.5))
+                        )
                 }
             }
             .padding(.top, 16)
@@ -58,11 +62,13 @@ struct MetarSearchView: View {
     }
     
     private func metarViewCta(for icaoId: IcaoId) -> MetarViewCta {
-        if isExistingMetar(icaoId) {
+        if metarSearchViewModel.isExistingMetar(icaoId) {
             return .added
         } else {
             return .add { icaoId in
-                addMetar(icaoId)
+                metarSearchViewModel.saveMetar(icaoId)
+                metarSearchViewModel.reloadMetars()
+                presentSearchAirport = false
             }
         }
     }

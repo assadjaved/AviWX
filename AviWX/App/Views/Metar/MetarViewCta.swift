@@ -42,8 +42,8 @@ enum MetarViewCta {
 private struct RefreshCtaView: View {
     var body: some View {
         Image(systemName: "arrow.clockwise")
-            .imageScale(.medium)
-            .foregroundColor(.blue)
+            .imageScale(.small)
+            .foregroundColor(.black)
     }
 }
 

@@ -1,0 +1,25 @@
+{
+  "name": "AviWXStorage",
+  "version": "1.0.0",
+  "summary": "AviWX storage module",
+  "homepage": "https://github.com/assadjaved/AviWX",
+  "authors": {
+    "Asad Javed": "assad.j.karim@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/assadjaved/AviWX.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source_files": "Modules/AviWXStorage/Sources/**/*.{swift,h,m}",
+  "frameworks": "Foundation",
+  "testspecs": [
+    {
+      "name": "AviWXStorageTests",
+      "test_type": "unit",
+      "source_files": "Modules/AviWXStorage/Tests/**/*.{swift}"
+    }
+  ]
+}
