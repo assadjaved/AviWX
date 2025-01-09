@@ -12,11 +12,3 @@ public protocol AviWXStorage {
     func exists(_ icaoId: String) -> Bool
     func retrieve() -> [String]
 }
-
-enum AviWXStorageError: Error {
-    case metarNotFound
-    case metarAlreadyExists
-    case metarsResourceNotFound
-    case failedToSaveMetar
-    case failedToDeleteMetar
-}
