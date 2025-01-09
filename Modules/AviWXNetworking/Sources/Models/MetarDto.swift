@@ -7,6 +7,7 @@
 
 
 public struct MetarDto: Decodable {
+    public let metarId: Int
     public let icaoId: String
     public let reportTime: String
     public let temp: Double
@@ -26,6 +27,7 @@ public struct CloudDto: Decodable {
 
 extension MetarDto {
     enum CodingKeys: String, CodingKey {
+        case metarId = "metar_id"
         case icaoId
         case reportTime
         case temp
@@ -45,7 +47,8 @@ extension MetarDto {
     
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        icaoId = try container.decode(String.self, forKey: .icaoId)
+        metarId = try container.decode(Int.self, forKey: .metarId)
+        icaoId = try container.decode(String.self, forKey: .icaoId).uppercased()
         reportTime = try container.decode(String.self, forKey: .reportTime)
         temp = try container.decode(Double.self, forKey: .temp)
         dewp = try container.decode(Double.self, forKey: .dewp)
@@ -57,7 +60,7 @@ extension MetarDto {
         
         if let intValue = try? container.decode(Int.self, forKey: .wdir) {
             wdir = .int(intValue)
-        } else if let stringValue = try? container.decode(String.self, forKey: .wdir), stringValue == "VRB" {
+        } else if let stringValue = try? container.decode(String.self, forKey: .wdir) {
             wdir = .string(stringValue)
         } else {
             throw DecodingError.dataCorruptedError(forKey: .wdir, in: container, debugDescription: "Invalid wdir value")

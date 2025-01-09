@@ -15,7 +15,6 @@ class MetarListViewModel: ObservableObject {
     
     @Published var metars = [MetarViewModel]()
     
-    private let metarStorageService: MetarStorageService
     private let metarAvailabilityService: MetarAvailabilityService
     private var cancellables = Set<AnyCancellable>()
     
@@ -27,8 +26,7 @@ class MetarListViewModel: ObservableObject {
         metarAvailabilityService.metarsAvailable
     }
     
-    init(metarStorageService: MetarStorageService, metarAvailabilityService: MetarAvailabilityService) {
-        self.metarStorageService = metarStorageService
+    init(metarAvailabilityService: MetarAvailabilityService) {
         self.metarAvailabilityService = metarAvailabilityService
         bindings()
     }
@@ -48,17 +46,16 @@ class MetarListViewModel: ObservableObject {
             metars = availableMetars
             return
         }
-
-        let filterText = filterText.lowercased()
         
         metars = availableMetars.filter { metarViewModel in
             // search by icaoId
-            if metarViewModel.icaoId.lowercased().contains(filterText) {
+            if metarViewModel.icaoId.contains(filterText.uppercased()) {
                 return true
             }
             
             // search by airport name or country name
             if let metar = metarViewModel.metar {
+                let filterText = filterText.lowercased()
                 return metar.name.lowercased().contains(filterText) ||
                        metar.countryDetails.name.lowercased().contains(filterText)
             }
@@ -73,6 +70,6 @@ class MetarListViewModel: ObservableObject {
     }
     
     func deleteMetar(_ icaoId: String) {
-        metarStorageService.delete(icaoId)
+        metarAvailabilityService.deleteMetar(icaoId)
     }
 }

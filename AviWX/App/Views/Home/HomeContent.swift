@@ -40,8 +40,11 @@ struct HomeContent: View {
                     ForEach(metarListViewModel.metars, id: \.icaoId) { metarViewModel in
                         MetarRow(
                             viewModel: metarViewModel,
-                            metarViewCta: .refresh { icaoId in
+                            metarViewPrimaryCta: .refresh { icaoId in
                                 Task { await metarListViewModel.refreshMetar(icaoId) }
+                            },
+                            metarViewSecondaryCta: .delete { icaoId in
+                                metarListViewModel.deleteMetar(icaoId)
                             }
                         )
                         .padding(.horizontal, 16)

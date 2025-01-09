@@ -14,11 +14,11 @@ class MetarStorageService {
         self.storage = storage
     }
     
-    func save(_ icaoId: String) {
+    func save(_ icaoId: String) -> Bool {
         storage.save(icaoId)
     }
     
-    func delete(_ icaoId: String) {
+    func delete(_ icaoId: String) -> Bool {
         storage.delete(icaoId)
     }
     

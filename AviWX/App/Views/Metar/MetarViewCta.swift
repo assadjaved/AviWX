@@ -11,6 +11,7 @@ typealias IcaoId = String
 typealias MetarCtaHandler = (IcaoId) -> Void
 
 enum MetarViewCta {
+    case delete(handler: MetarCtaHandler)
     case refresh(handler: MetarCtaHandler)
     case add(handler: MetarCtaHandler)
     case added
@@ -18,6 +19,8 @@ enum MetarViewCta {
     @ViewBuilder
     var view: some View {
         switch self {
+        case .delete:
+            DeleteCtaView()
         case .refresh:
             RefreshCtaView()
         case .add:
@@ -29,6 +32,8 @@ enum MetarViewCta {
     
     var action: MetarCtaHandler? {
         switch self {
+        case .delete(let handler):
+            return handler
         case .refresh(let handler):
             return handler
         case .add(let handler):
@@ -80,5 +85,13 @@ private struct AddedCtaView: View {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.green)
         )
+    }
+}
+
+private struct DeleteCtaView: View {
+    var body: some View {
+        Image(systemName: "trash")
+            .imageScale(.small)
+            .foregroundStyle(.red)
     }
 }

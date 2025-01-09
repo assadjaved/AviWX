@@ -10,7 +10,8 @@ import SwiftUI
 
 struct MetarRow: View {
     @ObservedObject var viewModel: MetarViewModel
-    let metarViewCta: MetarViewCta
+    let metarViewPrimaryCta: MetarViewCta
+    let metarViewSecondaryCta: MetarViewCta?
     
     var body: some View {
         VStack {
@@ -22,7 +23,8 @@ struct MetarRow: View {
             case .value(let metar):
                 MetarView(
                     metar: metar,
-                    metarViewCta: metarViewCta
+                    metarViewPrimaryCta: metarViewPrimaryCta,
+                    metarViewSecondaryCta: metarViewSecondaryCta
                 )
             case .error:
                 MetarErrorView {

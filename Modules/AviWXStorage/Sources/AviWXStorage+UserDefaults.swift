@@ -13,23 +13,25 @@ extension UserDefaults: AviWXStorage {
         static let icaoIdsKey = "icaoIdsKey"
     }
     
-    public func save(_ icaoId: String) {
+    public func save(_ icaoId: String) -> Bool {
         var icaoIds = retrieve()
-        guard !icaoIds.contains(icaoId) else { return }
-        icaoIds.insert(icaoId.lowercased(), at: 0)
+        guard !icaoIds.contains(icaoId) else { return false }
+        icaoIds.insert(icaoId, at: 0)
         set(icaoIds, forKey: Constants.icaoIdsKey)
+        return true
     }
     
-    public func delete(_ icaoId: String) {
+    public func delete(_ icaoId: String) -> Bool {
         var icaoIds = retrieve()
-        guard let index = icaoIds.firstIndex(of: icaoId.lowercased()) else { return }
+        guard let index = icaoIds.firstIndex(of: icaoId) else { return false }
         icaoIds.remove(at: index)
         set(icaoIds, forKey: Constants.icaoIdsKey)
+        return true
     }
     
     public func exists(_ icaoId: String) -> Bool {
         let icaoIds = retrieve()
-        return icaoIds.contains(icaoId.lowercased())
+        return icaoIds.contains(icaoId)
     }
     
     public func retrieve() -> [String] {

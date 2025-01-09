@@ -38,13 +38,16 @@ struct MetarSearchView: View {
                 .frame(height: 16)
             TextField("Enter airport ICAO id - eg. OPLA", text: $icaoId)
                 .textStyle(.body)
+                .autocapitalization(.allCharacters)
+                .disableAutocorrection(true)
             Divider()
             if let result = metarSearchViewModel.metarState {
                 switch result {
                 case .success(let metarViewModel):
                     MetarRow(
                         viewModel: metarViewModel,
-                        metarViewCta: metarViewCta(for: metarViewModel.icaoId)
+                        metarViewPrimaryCta: metarViewCta(for: metarViewModel.icaoId),
+                        metarViewSecondaryCta: nil
                     )
                 case .failure:
                     Text("Please enter a valid ICAO id - eg. OPLA 🛬")
@@ -57,7 +60,7 @@ struct MetarSearchView: View {
         }
         .padding()
         .onChange(of: icaoId) { _, icaoId in
-            metarSearchViewModel.searchAirport(with: icaoId)
+            metarSearchViewModel.searchAirport(with: icaoId.uppercased())
         }
     }
     
@@ -67,7 +70,6 @@ struct MetarSearchView: View {
         } else {
             return .add { icaoId in
                 metarSearchViewModel.saveMetar(icaoId)
-                metarSearchViewModel.reloadMetars()
                 presentSearchAirport = false
             }
         }

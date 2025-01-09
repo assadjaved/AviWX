@@ -22,12 +22,10 @@ struct AviWXApp: App {
         services = AppServices(dependencies: dependencies)
         
         metarListViewModel = MetarListViewModel(
-            metarStorageService: services.metarStorageService,
             metarAvailabilityService: services.metarAvailabilityService
         )
         
         metarSearchViewModel = MetarSearchViewModel(
-            metarStorageService: services.metarStorageService,
             metarAvailabilityService: services.metarAvailabilityService,
             networking: dependencies.networking
         )

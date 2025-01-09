@@ -7,8 +7,8 @@
 
 
 public protocol AviWXStorage {
-    func save(_ icaoId: String)
-    func delete(_ icaoId: String)
+    func save(_ icaoId: String) -> Bool
+    func delete(_ icaoId: String) -> Bool
     func exists(_ icaoId: String) -> Bool
     func retrieve() -> [String]
 }

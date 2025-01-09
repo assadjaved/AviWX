@@ -10,7 +10,10 @@ import AviWXNetworking
 
 struct MetarView: View {
     let metar: MetarDto
-    let metarViewCta: MetarViewCta
+    let metarViewPrimaryCta: MetarViewCta
+    let metarViewSecondaryCta: MetarViewCta?
+    
+    @State private var showSecondaryCta = false
     
     var body: some View {
         VStack {
@@ -25,9 +28,9 @@ struct MetarView: View {
                             .textStyle(.title)
                         Spacer()
                         Button(action: {
-                            metarViewCta.action?(metar.icaoId)
+                            metarViewPrimaryCta.action?(metar.icaoId)
                         }) {
-                            metarViewCta.view
+                            metarViewPrimaryCta.view
                         }
                     }
                     Spacer()
@@ -68,8 +71,23 @@ struct MetarView: View {
                         }
                     }
                 }
+                if let metarViewSecondaryCta, showSecondaryCta {
+                    Button(action: {
+                        metarViewSecondaryCta.action?(metar.icaoId)
+                    }, label: {
+                        metarViewSecondaryCta.view
+                    })
+                    .padding(.leading, 16)
+                    .padding(.trailing, 8)
+                }
             }
         }
         .padding(16)
+        .contentShape(Rectangle())
+        .onLongPressGesture {
+            withAnimation {
+                showSecondaryCta.toggle()
+            }
+        }
     }
 }
