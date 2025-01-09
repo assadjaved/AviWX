@@ -50,7 +50,8 @@ class MetarSearchViewModel: ObservableObject {
     }
     
     func saveMetar(_ icaoId: String) {
-        metarAvailabilityService.saveMetar(icaoId)
+        // TODO: - handle throw to show alert...
+        try? metarAvailabilityService.saveMetar(icaoId)
     }
     
     func isExistingMetar(_ icaoId: String) -> Bool {

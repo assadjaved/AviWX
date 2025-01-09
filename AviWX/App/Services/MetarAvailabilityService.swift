@@ -31,16 +31,24 @@ class MetarAvailabilityService {
         availableMetars = icaoIds.map { MetarViewModel(icaoId: $0, networking: networking) }
     }
     
-    func saveMetar(_ icaoId: String) {
-        guard metarStorageService.save(icaoId) else { return }
-        availableMetars.insert(MetarViewModel(icaoId: icaoId, networking: networking), at: 0)
-        availableMetars = availableMetars
+    func saveMetar(_ icaoId: String) throws {
+        do {
+            try metarStorageService.save(icaoId)
+            availableMetars.insert(MetarViewModel(icaoId: icaoId, networking: networking), at: 0)
+            availableMetars = availableMetars
+        } catch {
+            throw error
+        }
     }
     
-    func deleteMetar(_ icaoId: String) {
-        guard metarStorageService.delete(icaoId) else { return }
-        availableMetars.removeAll { $0.icaoId == icaoId }
-        availableMetars = availableMetars
+    func deleteMetar(_ icaoId: String) throws {
+        do {
+            try metarStorageService.delete(icaoId)
+            availableMetars.removeAll { $0.icaoId == icaoId }
+            availableMetars = availableMetars
+        } catch {
+            throw error
+        }
     }
     
     func isExistingMetar(_ icaoId: String) -> Bool {

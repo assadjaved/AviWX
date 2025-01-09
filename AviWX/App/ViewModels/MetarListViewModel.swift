@@ -70,6 +70,7 @@ class MetarListViewModel: ObservableObject {
     }
     
     func deleteMetar(_ icaoId: String) {
-        metarAvailabilityService.deleteMetar(icaoId)
+        // TODO: - handle throw to show alert...
+        try? metarAvailabilityService.deleteMetar(icaoId)
     }
 }

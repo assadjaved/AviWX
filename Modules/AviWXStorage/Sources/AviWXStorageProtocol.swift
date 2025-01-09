@@ -7,8 +7,16 @@
 
 
 public protocol AviWXStorage {
-    func save(_ icaoId: String) -> Bool
-    func delete(_ icaoId: String) -> Bool
+    func save(_ icaoId: String) throws
+    func delete(_ icaoId: String) throws
     func exists(_ icaoId: String) -> Bool
     func retrieve() -> [String]
+}
+
+enum AviWXStorageError: Error {
+    case metarNotFound
+    case metarAlreadyExists
+    case metarsResourceNotFound
+    case failedToSaveMetar
+    case failedToDeleteMetar
 }

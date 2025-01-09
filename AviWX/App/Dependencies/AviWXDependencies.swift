@@ -15,6 +15,7 @@ protocol AviWXDependencies {
 }
 
 class AppDependencies: AviWXDependencies {
-    let storage: AviWXStorage = UserDefaults.standard
+//    let storage: AviWXStorage = UserDefaults.standard
+    let storage: AviWXStorage = FileManager.default
     let networking: AviWXNetworkingType = AviWXNetworking.shared
 }
