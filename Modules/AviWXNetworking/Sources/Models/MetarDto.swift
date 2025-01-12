@@ -17,6 +17,7 @@ public struct MetarDto: Decodable {
     public let altim: Double
     public let rawOb: String
     public let name: String
+    public let elev: Double
     public let clouds: [CloudDto]
 }
 
@@ -37,6 +38,7 @@ extension MetarDto {
         case altim
         case rawOb
         case name
+        case elev
         case clouds
     }
     
@@ -56,6 +58,7 @@ extension MetarDto {
         altim = try container.decode(Double.self, forKey: .altim)
         rawOb = try container.decode(String.self, forKey: .rawOb)
         name = try container.decode(String.self, forKey: .name)
+        elev = try container.decode(Double.self, forKey: .elev)
         clouds = try container.decode([CloudDto].self, forKey: .clouds)
         
         if let intValue = try? container.decode(Int.self, forKey: .wdir) {

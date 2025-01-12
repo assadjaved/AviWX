@@ -39,7 +39,7 @@ struct HomeContent: View {
                 ScrollView {
                     ForEach(metarListViewModel.metars, id: \.icaoId) { metarViewModel in
                         MetarRow(
-                            viewModel: metarViewModel,
+                            metarViewModel: metarViewModel,
                             metarViewPrimaryCta: .refresh { icaoId in
                                 Task { await metarListViewModel.refreshMetar(icaoId) }
                             },

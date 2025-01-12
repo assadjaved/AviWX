@@ -69,4 +69,32 @@ public extension MetarDto {
             .joined()
         return (name: countryName ?? countryCode, flag: flag)
     }
+    
+    var formattedReportTime: String {
+        let reportTimeComponents = reportTime.components(separatedBy: " ")
+        let data = reportTimeComponents.first?.components(separatedBy: "-").reversed().joined(separator: "-")
+        let time = reportTimeComponents.last?.components(separatedBy: ":").dropLast().joined(separator: ":")
+        if let data, let time {
+            return "\(data) \(time) UTC"
+        } else {
+            return reportTime
+        }
+    }
+    
+    var formattedElevation: String {
+        "\(Int(round(elev))) m / \(Int(round(elev * 3.28084))) ft"
+    }
+    
+    var formattedVisibility: String {
+        let rawMetarComponents = rawOb.components(separatedBy: " ")
+        guard rawMetarComponents.count > 3 else {
+            return "n/a"
+        }
+        let visibilityComponent  = rawMetarComponents[3]
+        if let visibilityValue = Int(visibilityComponent ) {
+            return "\(visibilityValue) meters"
+        } else {
+            return visibilityComponent
+        }
+    }
 }

@@ -17,14 +17,14 @@ class MetarSearchViewModel: ObservableObject {
     }
     
     private let metarAvailabilityService: MetarAvailabilityService
-    private let networking: AviWXNetworkingType
+    private let metarDataProviderService: MetarDataProviderServiceType
     
     init(
         metarAvailabilityService: MetarAvailabilityService,
-        networking: AviWXNetworkingType
+        metarDataProviderService: MetarDataProviderServiceType
     ) {
         self.metarAvailabilityService = metarAvailabilityService
-        self.networking = networking
+        self.metarDataProviderService = metarDataProviderService
     }
     
     func searchAirport(with icaoId: String) {
@@ -43,7 +43,7 @@ class MetarSearchViewModel: ObservableObject {
         
         // icao id should be 4 characters long
         if icaoId.count == Constants.icaoIdLength {
-            metarState = .success(MetarViewModel(icaoId: icaoId, networking: networking))
+            metarState = .success(MetarViewModel(icaoId: icaoId, metarDataProviderService: metarDataProviderService))
         } else {
             metarState = .failure(AviWXError.notFound)
         }

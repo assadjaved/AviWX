@@ -14,27 +14,27 @@ class MetarAvailabilityService {
     @Published private(set) var availableMetars = [MetarViewModel]()
     
     private let metarStorageService: MetarStorageService
-    private let networking: AviWXNetworkingType
+    private let metarDataProviderService: MetarDataProviderServiceType
     
     var metarsAvailable: Bool {
         !availableMetars.isEmpty
     }
     
-    init(metarStorageService: MetarStorageService, networking: AviWXNetworkingType) {
+    init(metarStorageService: MetarStorageService, metarDataProviderService: MetarDataProviderServiceType) {
         self.metarStorageService = metarStorageService
-        self.networking = networking
+        self.metarDataProviderService = metarDataProviderService
         retrieveMetars()
     }
     
     private func retrieveMetars() {
         let icaoIds = metarStorageService.retrieve()
-        availableMetars = icaoIds.map { MetarViewModel(icaoId: $0, networking: networking) }
+        availableMetars = icaoIds.map { MetarViewModel(icaoId: $0, metarDataProviderService: metarDataProviderService) }
     }
     
     func saveMetar(_ icaoId: String) throws {
         do {
             try metarStorageService.save(icaoId)
-            availableMetars.insert(MetarViewModel(icaoId: icaoId, networking: networking), at: 0)
+            availableMetars.insert(MetarViewModel(icaoId: icaoId, metarDataProviderService: metarDataProviderService), at: 0)
             availableMetars = availableMetars
         } catch {
             throw error

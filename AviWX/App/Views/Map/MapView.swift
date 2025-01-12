@@ -21,7 +21,7 @@ struct MapView: View {
         self.position = MapCameraPosition.region(
             MKCoordinateRegion(
                 center: coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
             )
         )
     }
@@ -38,9 +38,9 @@ struct MapView: View {
                             .imageScale(.medium)
                             .foregroundStyle(.black)
                             .rotationEffect(.degrees(-45))
-                        Text(title)
-                            .textStyle(.bodyEmphasis)
-                            .foregroundStyle(.black)
+//                        Text(title)
+//                            .textStyle(.bodyEmphasis)
+//                            .foregroundStyle(.black)
                     }
                     .padding(8)
                 }

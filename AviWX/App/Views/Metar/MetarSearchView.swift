@@ -45,7 +45,7 @@ struct MetarSearchView: View {
                 switch result {
                 case .success(let metarViewModel):
                     MetarRow(
-                        viewModel: metarViewModel,
+                        metarViewModel: metarViewModel,
                         metarViewPrimaryCta: metarViewCta(for: metarViewModel.icaoId),
                         metarViewSecondaryCta: nil
                     )

@@ -57,7 +57,7 @@ struct MetarView: View {
                         }
                         Spacer()
                         VStack(spacing: 4) {
-                            Text("🫧 Altimeter")
+                            Text("⏱️ Altimeter")
                                 .textStyle(.bodySmall)
                             Text(metar.formattedAltimInHpa)
                                 .textStyle(.body)

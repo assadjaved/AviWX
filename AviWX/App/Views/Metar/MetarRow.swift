@@ -9,23 +9,35 @@
 import SwiftUI
 
 struct MetarRow: View {
-    @ObservedObject var viewModel: MetarViewModel
+    @ObservedObject var metarViewModel: MetarViewModel
+    @EnvironmentObject private var services: AppServices
+    
     let metarViewPrimaryCta: MetarViewCta
     let metarViewSecondaryCta: MetarViewCta?
     
     var body: some View {
         VStack {
-            switch viewModel.metarState {
+            switch metarViewModel.metarState {
             case .loading:
                 ProgressView()
                     .progressViewStyle(.circular)
                     .padding()
             case .value(let metar):
-                MetarView(
-                    metar: metar,
-                    metarViewPrimaryCta: metarViewPrimaryCta,
-                    metarViewSecondaryCta: metarViewSecondaryCta
-                )
+                NavigationLink {
+                    MetarDetailsView(
+                        metarDetailsViewModel: MetarDetailsViewModel(
+                            metar: metar,
+                            airportDataProviderService: services.airportDataProviderService
+                        )
+                    )
+                } label: {
+                    MetarView(
+                        metar: metar,
+                        metarViewPrimaryCta: metarViewPrimaryCta,
+                        metarViewSecondaryCta: metarViewSecondaryCta
+                    )
+                }
+                .buttonStyle(.plain)
             case .error:
                 MetarErrorView {
                     Task { await fetchMetar() }
@@ -43,6 +55,6 @@ struct MetarRow: View {
     }
     
     private func fetchMetar() async {
-        await viewModel.fetchMetar()
+        await metarViewModel.fetchMetar()
     }
 }

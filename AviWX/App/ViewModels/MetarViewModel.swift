@@ -13,7 +13,7 @@ class MetarViewModel: ObservableObject {
     @Published var metarState: LoadableState<MetarDto> = .loading
     
     let icaoId: String
-    private let networking: AviWXNetworkingType
+    private let metarDataProviderService: MetarDataProviderServiceType
     
     var metar: MetarDto? {
         if case .value(let metar) = metarState {
@@ -22,9 +22,9 @@ class MetarViewModel: ObservableObject {
         return nil
     }
     
-    init(icaoId: String, networking: AviWXNetworkingType) {
+    init(icaoId: String, metarDataProviderService: MetarDataProviderServiceType) {
         self.icaoId = icaoId
-        self.networking = networking
+        self.metarDataProviderService = metarDataProviderService
         Task { await fetchMetar() }
     }
     
@@ -32,7 +32,7 @@ class MetarViewModel: ObservableObject {
     func fetchMetar() async {
         metarState = .loading
         do {
-            let metar = try await networking.fetchMetar(for: icaoId)
+            let metar = try await metarDataProviderService.fetchMetar(for: icaoId)
             if let metar {
                 self.metarState = .value(metar)
             } else {
