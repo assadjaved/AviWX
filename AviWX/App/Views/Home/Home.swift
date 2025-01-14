@@ -17,10 +17,12 @@ struct Home: View {
         NavigationStack {
             HomeContent(metarListViewModel: metarListViewModel)
             .sheet(isPresented: $presentAirportSearch) {
-                MetarSearchView(
-                    metarSearchViewModel: metarSearchViewModel,
-                    presentSearchAirport: $presentAirportSearch
-                )
+                NavigationStack {
+                    MetarSearchView(
+                        metarSearchViewModel: metarSearchViewModel,
+                        presentSearchAirport: $presentAirportSearch
+                    )
+                }
                 .presentationDetents([.medium, .large])
             }
             .toolbar {

@@ -102,6 +102,35 @@ struct MetarDetailsView: View {
                 }
                 .padding()
                 Divider()
+                VStack {
+                    Text("Clouds")
+                        .textStyle(.heading)
+                    Spacer()
+                        .frame(height: 16)
+                    ForEach(metar.formattedCloudsReport, id: \.self) { cloud in
+                        Text(cloud)
+                            .textStyle(.title)
+                        Spacer()
+                            .frame(height: 8)
+                    }
+                }
+                .padding()
+                Divider()
+                VStack {
+                    Text("Raw METAR")
+                        .textStyle(.heading)
+                    Spacer()
+                        .frame(height: 16)
+                    Text(metar.rawOb)
+                        .font(.system(.body, design: .monospaced))
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .shadow(radius: 2)
+                        
+                }
+                .padding()
+                Divider()
             }
         }
         .navigationTitle(metar.icaoId)

@@ -91,8 +91,8 @@ public extension MetarDto {
             return "n/a"
         }
         let visibilityComponent  = rawMetarComponents[3]
-        if let visibilityValue = Int(visibilityComponent ) {
-            return "\(visibilityValue) meters"
+        if let visibilityValue = Int(visibilityComponent) {
+            return "\(visibilityValue.formatWithComma()) meters"
         } else {
             return visibilityComponent
         }

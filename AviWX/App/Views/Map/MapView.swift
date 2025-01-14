@@ -38,9 +38,6 @@ struct MapView: View {
                             .imageScale(.medium)
                             .foregroundStyle(.black)
                             .rotationEffect(.degrees(-45))
-//                        Text(title)
-//                            .textStyle(.bodyEmphasis)
-//                            .foregroundStyle(.black)
                     }
                     .padding(8)
                 }
