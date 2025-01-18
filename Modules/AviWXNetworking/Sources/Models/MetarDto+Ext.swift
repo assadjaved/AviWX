@@ -86,15 +86,15 @@ public extension MetarDto {
     }
     
     var formattedVisibility: String {
-        let rawMetarComponents = rawOb.components(separatedBy: " ")
-        guard rawMetarComponents.count > 3 else {
-            return "n/a"
-        }
-        let visibilityComponent  = rawMetarComponents[3]
-        if let visibilityValue = Int(visibilityComponent) {
-            return "\(visibilityValue.formatWithComma()) meters"
+        if let match = rawOb.firstMatch(of: #/\b\d{4}\b|\b\d+SM\b|CAVOK/#) {
+            let value = String(match.0)
+            if let intValue = Int(value) {
+                return "\(intValue.formatWithComma()) meters"
+            } else {
+                return value
+            }
         } else {
-            return visibilityComponent
+            return "N/A"
         }
     }
 }
