@@ -131,6 +131,15 @@ struct MetarDetailsView: View {
                 }
                 .padding()
                 Divider()
+                VStack {
+                    Text("Runways")
+                        .textStyle(.heading)
+                    Spacer()
+                        .frame(height: 16)
+                    RunwaysView(metarDetailsViewModel: metarDetailsViewModel)
+                }
+                .padding()
+                Divider()
             }
         }
         .navigationTitle(metar.icaoId)
@@ -155,6 +164,40 @@ struct MetarDetailsMapView: View {
                 Image(systemName: "exclamationmark.triangle")
                     .imageScale(.medium)
                 Text("Sorry, can't load airport map")
+                    .textStyle(.body)
+            }
+        }
+    }
+}
+
+struct RunwaysView: View {
+    
+    @ObservedObject var metarDetailsViewModel: MetarDetailsViewModel
+    
+    private var windDir: MetarDto.Variable {
+        metarDetailsViewModel.metar.wdir
+    }
+    
+    private var windSpeed: Int {
+        metarDetailsViewModel.metar.wspd
+    }
+    
+    var body: some View {
+        switch metarDetailsViewModel.airportState {
+        case .loading:
+            ProgressView()
+                .progressViewStyle(.circular)
+                .padding()
+        case .value(let airport):
+            ForEach(airport.runways, id: \.id) { runway in
+                RunwayView(runway: runway, windDirection: windDir, windSpeed: windSpeed)
+                Divider()
+            }
+        case .error:
+            HStack {
+                Image(systemName: "exclamationmark.triangle")
+                    .imageScale(.medium)
+                Text("Sorry, can't load airport runways data")
                     .textStyle(.body)
             }
         }

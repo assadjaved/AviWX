@@ -23,10 +23,17 @@ public struct RunwayDto: Decodable {
     public let id: String
     public let dimension: String
     public let surface: String
+    public let alignment: String
 }
 
 public extension AirportDto {
     var coord2d: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lon)
+    }
+}
+
+public extension RunwayDto {
+    var alignmentDegree: Double {
+        Double(alignment) ?? 0
     }
 }
