@@ -30,6 +30,10 @@ public extension AirportDto {
     var coord2d: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
+    
+    var frequencies: [String] {
+        return freqs.components(separatedBy: ";")
+    }
 }
 
 public extension RunwayDto {

@@ -139,16 +139,32 @@ struct MetarDetailsView: View {
                     RunwaysView(metarDetailsViewModel: metarDetailsViewModel)
                 }
                 .padding()
-                Divider()
+                VStack {
+                    Text("📡 Frequencies")
+                        .textStyle(.heading)
+                    Spacer()
+                        .frame(height: 16)
+                    FrequenciesView(metarDetailsViewModel: metarDetailsViewModel)
+                }
+                .padding()
             }
         }
         .navigationTitle(metar.icaoId)
     }
 }
 
-struct MetarDetailsMapView: View {
+struct MetarDetailsContentView<Content: View>: View {
     
     @ObservedObject var metarDetailsViewModel: MetarDetailsViewModel
+    let content: (AirportDto) -> Content
+    
+    init(
+        metarDetailsViewModel: MetarDetailsViewModel,
+        @ViewBuilder content: @escaping (AirportDto) -> Content
+    ) {
+        self.metarDetailsViewModel = metarDetailsViewModel
+        self.content = content
+    }
     
     var body: some View {
         switch metarDetailsViewModel.airportState {
@@ -157,15 +173,28 @@ struct MetarDetailsMapView: View {
                 .progressViewStyle(.circular)
                 .padding()
         case .value(let airport):
-            MapView(title: airport.icaoId, coordinate: airport.coord2d)
-                .frame(width: UIScreen.main.bounds.width, height: 256)
+            content(airport)
         case .error:
             HStack {
                 Image(systemName: "exclamationmark.triangle")
                     .imageScale(.medium)
-                Text("Sorry, can't load airport map")
+                Text("Sorry, can't load airport data at the moment.")
                     .textStyle(.body)
             }
+        }
+    }
+}
+
+struct MetarDetailsMapView: View {
+    
+    @ObservedObject var metarDetailsViewModel: MetarDetailsViewModel
+    
+    var body: some View {
+        MetarDetailsContentView(
+            metarDetailsViewModel: metarDetailsViewModel
+        ) { airport in
+            MapView(title: airport.icaoId, coordinate: airport.coord2d)
+                .frame(width: UIScreen.main.bounds.width, height: 256)
         }
     }
 }
@@ -183,23 +212,40 @@ struct RunwaysView: View {
     }
     
     var body: some View {
-        switch metarDetailsViewModel.airportState {
-        case .loading:
-            ProgressView()
-                .progressViewStyle(.circular)
-                .padding()
-        case .value(let airport):
+        MetarDetailsContentView(
+            metarDetailsViewModel: metarDetailsViewModel
+        ) { airport in
             ForEach(airport.runways, id: \.id) { runway in
                 RunwayView(runway: runway, windDirection: windDir, windSpeed: windSpeed)
                 Divider()
             }
-        case .error:
-            HStack {
-                Image(systemName: "exclamationmark.triangle")
-                    .imageScale(.medium)
-                Text("Sorry, can't load airport runways data")
-                    .textStyle(.body)
+        }
+    }
+}
+
+struct FrequenciesView: View {
+    @ObservedObject var metarDetailsViewModel: MetarDetailsViewModel
+    
+    var body: some View {
+        MetarDetailsContentView(
+            metarDetailsViewModel: metarDetailsViewModel
+        ) { airport in
+            ForEach(Array(airport.frequencies), id: \.self) { frequencyData in
+                if let (type, frequency) = frequencyComponents(from: frequencyData) {
+                    Text("\(type): \(frequency)")
+                        .font(.system(.body, design: .monospaced))
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .shadow(radius: 2)
+                }
             }
         }
+    }
+    
+    private func frequencyComponents(from frequencyData: String) -> (type: String, frequency: String)? {
+        let components = frequencyData.components(separatedBy: ",")
+        guard components.count == 2 else { return nil }
+        return (type: components[0], frequency: components[1])
     }
 }
